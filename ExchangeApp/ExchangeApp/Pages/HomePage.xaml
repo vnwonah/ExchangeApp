@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:customelements="clr-namespace:ExchangeApp.CustomElements"
+             xmlns:views="clr-namespace:ExchangeApp.Views"
+             mc:Ignorable="d"
+             x:Class="ExchangeApp.Pages.HomePage">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#FFFFFF"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand">
+            <ScrollView  AbsoluteLayout.LayoutFlags="All"
+                      AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         VerticalScrollBarVisibility="Never"
+                         HorizontalScrollBarVisibility="Never">
+                <Grid ColumnSpacing="0"
+                        RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid BackgroundColor="#2699FB"
+                      HeightRequest="68"
+                      Padding="0"
+                      HorizontalOptions="FillAndExpand"
+                      Grid.Row="0"
+                      VerticalOptions="Start">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image BackgroundColor="Black"
+                       WidthRequest="26"
+                       HeightRequest="26"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Aspect="AspectFit"
+                       Margin="16,16,0,16"
+                       Grid.Column="0"/>
+                        <Label Text="exchange.io"
+                       Grid.Column="1"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="18"
+                       TextColor="#FFFFFF"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,16,0,16"/>
+                        <Image BackgroundColor="Black"
+                       WidthRequest="26"
+                       HeightRequest="26"
+                       VerticalOptions="Center"
+                       HorizontalOptions="EndAndExpand"
+                       Aspect="AspectFit"
+                       Margin="0,16,16,16"
+                       Grid.Column="2"/>
+                    </Grid>
+                    <BoxView Grid.Row="0"
+                     HeightRequest="1"
+                     VerticalOptions="End"
+                     BackgroundColor="#45588029"
+                     HorizontalOptions="FillAndExpand"/>
+                    <Grid BackgroundColor="#2699FB"
+                      Grid.Row="1"
+                      VerticalOptions="Start">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="1.5*"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Buy, sell, manage investments"
+                       Margin="48,50,48,0"
+                       FontSize="32"
+                       TextColor="#FFFFFF"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start"/>
+                        <Label Text="from one platform"
+                       Margin="116,132,116,0"
+                       TextColor="#FFFFFF"
+                       VerticalOptions="Start"
+                       HorizontalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                        <CollectionView ItemsLayout="HorizontalList"
+                                    Grid.Row="1"
+                                    ItemsSource="{Binding Companies}"
+                                    HeightRequest="50"
+                                    Margin="24,0,0,0">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image HeightRequest="100"
+                                           WidthRequest="100"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           Source="{Binding ImageUrl}"
+                                       Aspect="AspectFit"/>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                    <Frame HeightRequest="50"
+                       Grid.Row="1"
+                       Grid.RowSpan="2"
+                       HasShadow="False"
+                       BackgroundColor="#FFFFFF"
+                       Margin="15,325,15,0"
+                       CornerRadius="15">
+                        <Label Text="Ongoing bids"
+                           TextColor="#455880"
+                           FontSize="16"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center"/>
+                    </Frame>
+                    <customelements:BindableStackLayout
+                        Grid.Row="2"
+                        Items="{Binding Offers}"
+                        BackgroundColor="#FFFFFF"
+                        Padding="26,0,26,0"
+                        Spacing="20">
+                        <views:SingleListElement/>
+                        <views:SingleListElement/>
+                        <views:SingleListElement/>
+                        <views:MultiListElement></views:MultiListElement>
+                        <views:SingleListElement/>
+                        <views:SingleListElement/>
+                        <views:SingleListElement/>
+                        <views:MultiListElement></views:MultiListElement>
+                        <views:SingleListElement/>
+                        <views:SingleListElement/>
+                        <views:SingleListElement/>
+                        <views:MultiListElement></views:MultiListElement>
+                        <views:SingleListElement/>
+                        <views:SingleListElement/>
+                        <views:SingleListElement/>
+                    </customelements:BindableStackLayout>
+                </Grid>
+            </ScrollView>
+            <Button CornerRadius="100"
+                            BackgroundColor="#2699FB"
+                            Text="Sell"
+                            FontSize="13"
+                            TextColor="#FFFFFF"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"  
+                            AbsoluteLayout.LayoutBounds="0.90,0.95,70,70" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

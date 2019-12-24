@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ExchangeApp.Views.MultiListElement">
+    <ContentView.Content>
+        <Grid RowSpacing="0"
+              HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Selling fast"
+                   TextColor="#455880"
+                   FontSize="16"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+            <CollectionView Grid.Row="1"
+                          HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand"
+                          HeightRequest="184"
+                          x:Name="collectionView"
+                           ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0"
+                               Margin="14,0,0,0">
+                            <StackLayout WidthRequest="169"
+                                         HeightRequest="139"
+                                         Padding="5">
+                                <Image HeightRequest="84"
+                                   BackgroundColor="Black"
+                                   Margin="0"/>
+                                <Label Text="Merristem"/>
+                                <Label Text="mutual fund"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
